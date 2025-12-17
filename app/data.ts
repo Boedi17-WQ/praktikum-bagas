@@ -9,19 +9,24 @@ export type Exercise = {
 };
 
 export const exercises: Exercise[] = [
-  // --- 1. DASAR ---
+  // =========================================
+  // MODUL 1: DASAR & STRUKTUR
+  // =========================================
   {
     id: "1.1",
     category: "1. Dasar & Struktur",
     title: "1.1 Teks Sederhana",
     code: `<!DOCTYPE html>
 <html>
-<head><title>Latihan 1</title></head>
+<head>
+    <title>Latihan 1.1</title>
+</head>
 <body>
-    <p>Belajar bahasa pemrograman web ternyata mudah juga</p>
+    <p>Belajar bahasa pemrograman web ternyata mudah juga.</p>
+    <p>Halo, nama saya Bagas Pambudi!</p>
 </body>
 </html>`,
-    description: "Menampilkan teks sederhana di browser."
+    description: "Latihan dasar menampilkan teks menggunakan tag paragraf."
   },
   {
     id: "1.2",
@@ -31,18 +36,50 @@ export const exercises: Exercise[] = [
 <html>
 <head>
     <style>
+        /* Menggunakan CSS untuk warna */
         .merah { color: red; }
-        .biru { color: #007BFF; }
-        .emas { color: #FFD700; }
+        .biru { color: blue; }
+        .kuning { color: #FFD700; background-color: #333; padding: 5px; }
     </style>
 </head>
 <body>
-    <h3 class="emas">Eksperimen Warna</h3>
-    <p class="merah">Teks ini berwarna Merah.</p>
-    <p class="biru">Teks ini berwarna Biru Tech.</p>
+    <p class="merah">Kalimat ini berwarna Merah.</p>
+    <p class="biru">Kalimat ini berwarna Biru.</p>
+    <p class="kuning">Kalimat ini berwarna Emas dengan latar gelap.</p>
 </body>
 </html>`,
-    description: "Mengubah warna font menggunakan CSS."
+    description: "Mengubah warna teks (Foreground Color) menggunakan CSS."
+  },
+  {
+    id: "1.3",
+    category: "1. Dasar & Struktur",
+    title: "1.3 Teks & Background",
+    code: `<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #0f172a; /* Latar belakang halaman gelap */
+            color: white; /* Teks putih */
+            font-family: sans-serif;
+        }
+        .kotak {
+            background-color: #FFC107; /* Latar oranye/kuning */
+            color: black;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Halaman dengan Background Warna</h2>
+    <div class="kotak">
+        <p>Ini adalah teks hitam di dalam kotak berwarna kuning.</p>
+    </div>
+</body>
+</html>`,
+    description: "Kombinasi warna background halaman dan elemen div."
   },
   {
     id: "1.4",
@@ -53,304 +90,253 @@ export const exercises: Exercise[] = [
 <head>
     <style>
         body {
-            background-image: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=800&q=80');
+            /* Background Gambar Full Screen */
+            background-image: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=1000&q=80');
             background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: white;
-            font-family: sans-serif;
+            font-family: monospace;
             height: 100vh;
             margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .box {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 30px;
+        h1 {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 40px;
+            border: 2px solid #FFD700;
             border-radius: 10px;
-            border: 1px solid #FFD700;
+            text-shadow: 2px 2px 4px #000;
         }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>Background Image</h1>
-        <p>Tampilan full screen dengan gambar.</p>
-    </div>
+    <h1>Cyber Tech Background</h1>
 </body>
 </html>`,
-    description: "Menggunakan gambar sebagai latar belakang."
+    description: "Menggunakan gambar sebagai latar belakang halaman (Background Image)."
   },
 
-  // --- 2. FORMAT TEKS ---
+  // =========================================
+  // MODUL 2: FORMAT TEKS
+  // =========================================
   {
     id: "2.1",
     category: "2. Format Teks",
-    title: "2.1 Basic Formatting",
-    code: `<html>
+    title: "2.1 Line Break",
+    code: `<!DOCTYPE html>
+<html>
 <body>
-    <p><b>Bold (Tebal)</b></p>
-    <p><i>Italic (Miring)</i></p>
-    <p><u>Underline (Garis Bawah)</u></p>
-    <p><strike>Strikethrough (Coret)</strike></p>
+    <h3>Tanpa Line Break (BR):</h3>
+    <p>
+        Baris satu
+        Baris dua (Browser mengabaikan enter di kodingan)
+    </p>
+
+    <hr>
+
+    <h3>Dengan Line Break (BR):</h3>
+    <p>
+        Baris satu<br>
+        Baris dua<br>
+        Baris tiga
+    </p>
 </body>
 </html>`,
-    description: "Format teks dasar."
+    description: "Tag <br> digunakan untuk memutus baris (ganti baris) di dalam paragraf."
   },
   {
     id: "2.2",
     category: "2. Format Teks",
-    title: "2.2 Sup & Sub",
-    code: `<html>
+    title: "2.2 Paragraf",
+    code: `<!DOCTYPE html>
+<html>
 <body>
-    <h3>Rumus Kimia & Matematika</h3>
-    <p>Air: H<sub>2</sub>O (Subscript)</p>
-    <p>Kuadrat: E = mc<sup>2</sup> (Superscript)</p>
+    <p>Ini adalah paragraf pertama. Tag &lt;p&gt; otomatis memberikan jarak (margin) di atas dan di bawah teks.</p>
+    
+    <p>Ini adalah paragraf kedua. Bandingkan jaraknya dengan baris biasa.</p>
+    
+    <p>Ini adalah paragraf ketiga.</p>
 </body>
 </html>`,
-    description: "Membuat huruf kecil di bawah (sub) atau di atas (sup)."
+    description: "Tag <p> digunakan untuk mendefinisikan blok teks sebagai paragraf."
   },
   {
     id: "2.3",
     category: "2. Format Teks",
-    title: "2.3 Preformatted",
-    code: `<html>
+    title: "2.3 Align Paragraf",
+    code: `<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .kiri { text-align: left; }
+        .tengah { text-align: center; }
+        .kanan { text-align: right; }
+        .justify { text-align: justify; }
+    </style>
+</head>
 <body>
-    <h3>Tag Pre (Menjaga Spasi)</h3>
+    <h3 class="kiri">Rata Kiri (Left)</h3>
+    <p class="kiri">Teks ini menempel ke kiri standar.</p>
+
+    <h3 class="tengah">Rata Tengah (Center)</h3>
+    <p class="tengah">Teks ini berada di tengah halaman.</p>
+
+    <h3 class="kanan">Rata Kanan (Right)</h3>
+    <p class="kanan">Teks ini menempel ke kanan halaman.</p>
+</body>
+</html>`,
+    description: "Mengatur perataan teks (Alignment) menggunakan CSS text-align."
+  },
+  {
+    id: "2.4",
+    category: "2. Format Teks",
+    title: "2.4 Heading (H1-H6)",
+    code: `<!DOCTYPE html>
+<html>
+<body>
+    <h1>Heading 1 - Paling Besar</h1>
+    <h2>Heading 2 - Sub Judul</h2>
+    <h3>Heading 3 - Sub Bab</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6 - Paling Kecil</h6>
+</body>
+</html>`,
+    description: "Tingkatan judul dokumen dari H1 (utama) sampai H6 (terkecil)."
+  },
+  {
+    id: "2.5",
+    category: "2. Format Teks",
+    title: "2.5 Bold, Italic, Underline",
+    code: `<!DOCTYPE html>
+<html>
+<body>
+    <p>Teks Normal</p>
+    <p><b>Bold: Teks Tebal</b></p>
+    <p><i>Italic: Teks Miring</i></p>
+    <p><u>Underline: Garis Bawah</u></p>
+    
+    <p><b><i><u>Kombinasi Ketiganya</u></i></b></p>
+</body>
+</html>`,
+    description: "Tag formatting dasar: <b> (Bold), <i> (Italic), dan <u> (Underline)."
+  },
+  {
+    id: "2.6",
+    category: "2. Format Teks",
+    title: "2.6 Preformatted",
+    code: `<!DOCTYPE html>
+<html>
+<body>
+    <h3>Contoh Menggunakan Tag PRE</h3>
     <pre>
-    Kupu-kupu terbang tinggi
-        Hinggap di bunga
-            Yang warna-warni
+    Kodingan C++:
+    
+    int main() {
+        cout << "Hello World";
+        return 0;
+    }
     </pre>
-    <p><i>Tanpa tag pre, spasi/enter di atas akan diabaikan browser.</i></p>
+    
+    <p><i>Tanpa tag &lt;pre&gt;, spasi dan enter di atas akan hilang.</i></p>
 </body>
 </html>`,
-    description: "Menampilkan teks persis sesuai format ketikan (termasuk spasi/enter)."
-  },
-
-  // --- 4. TABEL ---
-  {
-    id: "4.1",
-    category: "4. Tabel",
-    title: "4.1 Tabel Standar",
-    code: `<html>
-<head>
-<style>table, th, td { border: 1px solid black; padding: 5px; border-collapse: collapse; }</style>
-</head>
-<body>
-    <table>
-        <tr><th>No</th><th>Nama</th></tr>
-        <tr><td>1</td><td>Budi</td></tr>
-        <tr><td>2</td><td>Siti</td></tr>
-    </table>
-</body>
-</html>`,
-    description: "Tabel baris dan kolom sederhana."
+    description: "Tag <pre> menampilkan teks dengan format spasi dan baris tetap (Monospace)."
   },
   {
-    id: "4.2",
-    category: "4. Tabel Warna",
-    title: "4.2 Tabel Warna",
-    code: `<html>
-<head>
-<style>
-  table { border-collapse: collapse; width: 100%; font-family: sans-serif; }
-  th { background-color: #FFC107; color: black; padding: 10px; }
-  td { border: 1px solid #ddd; padding: 8px; }
-  tr:nth-child(even) { background-color: #f2f2f2; }
-</style>
-</head>
+    id: "2.7",
+    category: "2. Format Teks",
+    title: "2.7 Center",
+    code: `<!DOCTYPE html>
+<html>
 <body>
-    <table>
-        <tr><th>Produk</th><th>Harga</th></tr>
-        <tr><td>Laptop</td><td>Rp 10jt</td></tr>
-        <tr><td>Mouse</td><td>Rp 100rb</td></tr>
-    </table>
-</body>
-</html>`,
-    description: "Memberi warna pada header dan baris."
-  },
-  {
-    id: "4.3",
-    category: "4. Tabel",
-    title: "4.3 Merge Cells",
-    code: `<html>
-<head>
-<style>table, th, td { border: 1px solid black; padding: 10px; border-collapse: collapse; text-align:center; }</style>
-</head>
-<body>
-    <h3>Penggabungan Sel</h3>
-    <table>
-        <tr>
-            <th colspan="2">Nama Lengkap (Colspan=2)</th>
-            <th>Umur</th>
-        </tr>
-        <tr>
-            <td>Budi</td>
-            <td>Santoso</td>
-            <td rowspan="2">20 (Rowspan=2)</td>
-        </tr>
-        <tr>
-            <td>Siti</td>
-            <td>Aminah</td>
-        </tr>
-    </table>
-</body>
-</html>`,
-    description: "Menggabungkan baris (rowspan) atau kolom (colspan)."
-  },
-
-  // --- 5. GAMBAR ---
-  {
-    id: "5.1",
-    category: "5. Gambar",
-    title: "5.1 Gambar & Folder",
-    code: `<html>
-<body>
-    <h3>Gambar Folder Lokal</h3>
-    <p>Contoh kode memanggil file "foto.jpg" di dalam folder "images":</p>
-    <code>&lt;img src="images/foto.jpg" width="300"&gt;</code>
+    <center>
+        <h3>Judul di Tengah</h3>
+        <p>Semua elemen di dalam tag center akan berada di tengah.</p>
+        <button>Tombol Tengah</button>
+    </center>
     
     <hr>
-    <h3>Preview:</h3>
-    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=300&q=80" 
-         style="border-radius: 10px; border: 4px solid #FFC107;">
-</body>
-</html>`,
-    description: "Menampilkan gambar dari folder lokal."
-  },
-
-  // --- 6. HYPERLINK (BARU) ---
-  {
-    id: "6.1",
-    category: "6. Hyperlink",
-    title: "6.1 Link Website",
-    code: `<html>
-<body>
-    <h3>Link Eksternal</h3>
-    <p>Klik link di bawah untuk membuka Google:</p>
-    <a href="https://www.google.com" target="_blank" style="color: blue; font-weight: bold;">
-        Buka Google (Tab Baru)
-    </a>
-</body>
-</html>`,
-    description: "Membuat link ke website lain dengan target blank."
-  },
-  {
-    id: "6.2",
-    category: "6. Hyperlink",
-    title: "6.2 Link Gambar",
-    code: `<html>
-<body>
-    <h3>Gambar sebagai Link</h3>
-    <p>Klik gambar di bawah ini:</p>
-    <a href="https://google.com" target="_blank">
-        <img src="https://placehold.co/200x100?text=Klik+Saya" border="0">
-    </a>
-</body>
-</html>`,
-    description: "Menjadikan gambar sebagai tombol link."
-  },
-
-  // --- 7. FORM (BARU) ---
-  {
-    id: "7.1",
-    category: "7. Form",
-    title: "7.1 Form Login",
-    code: `<html>
-<head>
-<style>
-    .login-box { padding: 20px; background: #eee; border-radius: 8px; width: 250px; font-family: sans-serif;}
-    input { width: 100%; padding: 8px; margin: 5px 0; box-sizing: border-box; }
-    button { width: 100%; background: #007BFF; color: white; padding: 10px; border: none; cursor: pointer;}
-</style>
-</head>
-<body>
-    <div class="login-box">
-        <h3>Login User</h3>
-        <form>
-            <label>Username:</label>
-            <input type="text" placeholder="Masukkan nama...">
-            
-            <label>Password:</label>
-            <input type="password" placeholder="*******">
-            
-            <button type="submit">Masuk</button>
-        </form>
+    
+    <div style="text-align: center; margin-top: 20px;">
+        <p style="color: blue;">Ini menggunakan CSS modern (text-align: center)</p>
     </div>
 </body>
 </html>`,
-    description: "Membuat form input text dan password."
+    description: "Membuat elemen rata tengah menggunakan tag <center> (Klasik) atau CSS."
   },
   {
-    id: "7.2",
-    category: "7. Form",
-    title: "7.2 Form Register",
-    code: `<html>
+    id: "2.8",
+    category: "2. Format Teks",
+    title: "2.8 Basefont (Simulasi)",
+    code: `<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: "Courier New", monospace; /* Jenis Font Dasar */
+            font-size: 18px; /* Ukuran Font Dasar */
+            color: #333;
+        }
+    </style>
+</head>
 <body>
-    <h3>Form Pendaftaran</h3>
-    <form>
-        <p>Jenis Kelamin (Radio):<br>
-        <input type="radio" name="jk" value="L"> Laki-laki
-        <input type="radio" name="jk" value="P"> Perempuan
-        </p>
-        
-        <p>Hobi (Checkbox):<br>
-        <input type="checkbox"> Coding
-        <input type="checkbox"> Gaming
-        </p>
-        
-        <p>Kota (Select):<br>
-        <select>
-            <option>Jakarta</option>
-            <option>Bandung</option>
-            <option>Surabaya</option>
-        </select>
-        </p>
-        
-        <p>Alamat (Textarea):<br>
-        <textarea rows="4" cols="30"></textarea>
-        </p>
-    </form>
+    <h3>Simulasi Basefont</h3>
+    <p>Karena kita mengatur style di body, semua teks di halaman ini otomatis mengikuti font Courier New ukuran 18px.</p>
+    <p>Ini menggantikan fungsi tag &lt;basefont&gt; jaman dulu.</p>
 </body>
 </html>`,
-    description: "Menggunakan radio button, checkbox, select option, dan textarea."
+    description: "Mengatur font dasar halaman. (Note: Tag asli <basefont> sudah dihapus dari browser modern)."
   },
-
-  // --- 8. FRAME (BARU) ---
   {
-    id: "8.1",
-    category: "8. Frame",
-    title: "8.1 Iframe Website",
+    id: "2.9",
+    category: "2. Format Teks",
+    title: "2.9 Font Attribute",
     code: `<!DOCTYPE html>
 <html>
 <body>
-    <h3>Embed Website (Iframe)</h3>
-    <p>Menampilkan website lain di dalam kotak:</p>
+    <h3>Atribut Font Custom</h3>
     
-    <iframe src="https://www.wikipedia.org" 
-            width="100%" 
-            height="300" 
-            style="border: 2px solid #FFC107;">
-    </iframe>
+    <p style="font-family: Arial; font-size: 24px;">
+        Ini font Arial ukuran 24px
+    </p>
+    
+    <p style="font-family: 'Times New Roman'; color: red;">
+        Ini font Times New Roman warna Merah
+    </p>
+    
+    <p style="font-family: Verdana; font-size: 12px; color: blue;">
+        Ini font Verdana kecil warna Biru
+    </p>
 </body>
 </html>`,
-    description: "Menampilkan halaman web eksternal di dalam frame."
+    description: "Mengubah jenis font (Face), ukuran (Size), dan warna (Color) secara spesifik."
   },
   {
-    id: "8.2",
-    category: "8. Frame",
-    title: "8.2 Embed Youtube",
+    id: "2.10",
+    category: "2. Format Teks",
+    title: "2.10 Horizontal Rule",
     code: `<!DOCTYPE html>
 <html>
 <body>
-    <h3>Embed Video Youtube</h3>
-    <iframe width="100%" height="315" 
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-            frameborder="0" 
-            allowfullscreen>
-    </iframe>
+    <h3>Bab 1: Pendahuluan</h3>
+    <p>Ini adalah isi bab satu.</p>
+    
+    <hr>
+    
+    <h3>Bab 2: Pembahasan</h3>
+    <p>Garis di atas adalah tag HR default.</p>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+    
+    <p>Garis di atas adalah HR dengan style CSS custom.</p>
+    
+    <hr style="border-top: 5px dashed blue;">
 </body>
 </html>`,
-    description: "Cara embed video Youtube ke dalam halaman HTML."
+    description: "Tag <hr> digunakan untuk membuat garis horizontal pemisah konten."
   }
 ];
